@@ -26,9 +26,9 @@ router.post("/post", isAuthenticated, async(req, res) => {
                 authorId: req.userId,
             },
             include: {
-                author: {
+                author:{
                     include: {
-                        Profile: true,
+                        profile:true,
                     },
                 },
             },
@@ -49,11 +49,11 @@ router.get("/get_latest_post", async (req, res) => {
             include: {
                 author: {
                     include: {
-                        Profile: true,
+                        profile:true,
                     },
                 },
             },
-        });
+    });
         return res.json(latestPosts);
     }catch (err) {
         console.log(err);

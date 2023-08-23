@@ -33,7 +33,7 @@ router.get("/profile/:userId", async(req, res) => {
             include: {
                 user: {
                     include: {
-                        Profile: true,
+                        profile: true,
                     },
                 },
             },

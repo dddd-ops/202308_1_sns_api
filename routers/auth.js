@@ -1,4 +1,6 @@
 
+
+
 const router = require("express").Router();
 const {PrismaClient} = require("@prisma/client");
 
@@ -22,7 +24,7 @@ router.post("/register", async(req, res) => {
             username,
             email,
             password: hashedPassword,
-            Profile: {
+            profile: {
                 create: {
                     bio: "はじめまして",
                     profileImageUrl: defaultIconImage,
@@ -30,7 +32,7 @@ router.post("/register", async(req, res) => {
             },
         },
         include: {
-            Profile: true,
+            profile: true,
         },
     });
     return res.json({user});
